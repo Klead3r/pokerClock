@@ -24,6 +24,7 @@
         v-model="menu"
         absolute
         temporary
+        right
       >
         <v-layout
           wrap
@@ -441,12 +442,15 @@ export default {
       if (this.tournamentInfo.players < 6) {
         prizeArray.push(this.prizePool)
       } else if (this.tournamentInfo.players < 8) {
-        prizeArray.push(Math.round(this.prizePool / 3 * 2 / 10) * 10)
-        prizeArray.push(Math.round(this.prizePool / 3 / 10) * 10)
+        let win1 = Math.round(this.prizePool * 0.7 / 10) * 10
+        prizeArray.push(win1)
+        prizeArray.push(this.prizePool - win1)
       } else {
-        prizeArray.push(Math.round(this.prizePool * 0.5 / 5) * 5)
-        prizeArray.push(Math.round(this.prizePool * 0.32 / 5) * 5)
-        prizeArray.push(Math.round(this.prizePool * 0.18 / 5) * 5)
+        let win1 = Math.round(this.prizePool * 0.5 / 10) * 10
+        let win2 = Math.round(this.prizePool * 0.3 / 10) * 10
+        prizeArray.push(win1)
+        prizeArray.push(win2)
+        prizeArray.push(this.prizePool - win1 - win2)
       }
       return prizeArray
     }
@@ -533,7 +537,7 @@ export default {
     .menuBtn {
       position: absolute;
       top: 0;
-      left: 0;
+      right: 0;
     }
     .menuTitle {
       font-size: 16px;

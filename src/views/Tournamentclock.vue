@@ -364,24 +364,20 @@ export default {
           '10/20',
           '15/30',
           '20/40',
-          '25/50',
           '-- break --',
           '30/60',
           '40/80',
-          '50/100',
           '60/120',
           '-- break --',
-          '75/150',
           '100/200',
-          '125/250',
           '150/300',
-          '-- break --',
           '200/400',
+          '-- break --',
           '300/600',
           '400/800',
-          '500/1000'
+          '600/1200'
         ],
-        duration: 15,
+        duration: 20,
         level: 0
       },
       clockTime: {
@@ -445,12 +441,12 @@ export default {
       if (this.tournamentInfo.players < 6) {
         prizeArray.push(this.prizePool)
       } else if (this.tournamentInfo.players < 8) {
-        let win1 = Math.round(this.prizePool * 0.7 / 10) * 10
+        let win1 = Math.ceil(this.prizePool * 0.7 / 10) * 10
         prizeArray.push(win1)
         prizeArray.push(this.prizePool - win1)
       } else {
-        let win1 = Math.round(this.prizePool * 0.5 / 10) * 10
-        let win2 = Math.round(this.prizePool * 0.3 / 10) * 10
+        let win1 = Math.ceil(this.prizePool * 0.5 / 10) * 10
+        let win2 = Math.ceil(this.prizePool * 0.3 / 10) * 10
         prizeArray.push(win1)
         prizeArray.push(win2)
         prizeArray.push(this.prizePool - win1 - win2)
@@ -546,6 +542,8 @@ export default {
 <style lang="scss" scoped>
   .tournamentWrapper {
     height: 100%;
+    background-color: #000;
+    color: #fff;
     .menuBtn {
       position: absolute;
       top: 0;

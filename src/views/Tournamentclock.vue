@@ -365,14 +365,17 @@ export default {
           '15/30',
           '20/40',
           '25/50',
+          '-- break --',
           '30/60',
           '40/80',
           '50/100',
           '60/120',
+          '-- break --',
           '75/150',
           '100/200',
           '125/250',
           '150/300',
+          '-- break --',
           '200/400',
           '300/600',
           '400/800',
@@ -463,10 +466,15 @@ export default {
       this.clockRunning = true
       var that = this
       this.timeOut = setTimeout(function () {
+        let isBreak = false
         if (that.clockTime.seconds === 0) {
           that.clockTime.seconds = 9
           if (that.clockTime.secondsTens === 0) {
             if (that.clockTime.minutes === 0) {
+              if (that.blinds.list[that.blinds.level + 1] === '-- break --') {
+                isBreak = true
+                that.blinds.level++
+              }
               that.clockTime.minutes = that.blinds.duration
               that.clockTime.secondsTens = 0
               that.clockTime.seconds = 0
@@ -482,7 +490,11 @@ export default {
         } else {
           that.clockTime.seconds--
         }
-        that.startClock()
+        if (isBreak) {
+          that.stopClock()
+        } else {
+          that.startClock()
+        }
       }, 1000)
     },
     stopClock () {

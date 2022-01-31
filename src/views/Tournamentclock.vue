@@ -375,7 +375,8 @@ export default {
           '-- break --',
           '300/600',
           '400/800',
-          '600/1200'
+          '600/1200',
+          '1000/2000'
         ],
         duration: 20,
         level: 0
@@ -388,7 +389,7 @@ export default {
       tournamentInfo: {
         players: 0,
         reEntries: 0,
-        stack: 1000,
+        stack: 1200,
         buyin: 10
       },
       colors: [

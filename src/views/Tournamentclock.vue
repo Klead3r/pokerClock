@@ -301,7 +301,7 @@
               {{ prizePool }}€
             </span>
           </p>
-          <p>PRIZES
+          <p>Prizes
             <br>
             <span
               v-for="(prize, index) in prizes"
@@ -378,6 +378,26 @@ export default {
           '600/1200',
           '1000/2000'
         ],
+        /*
+        list: [
+          '50/100',
+          '75/150',
+          '100/200',
+          '-- break --',
+          '150/300',
+          '200/400',
+          '300/600',
+          '-- break --',
+          '400/800',
+          '600/1200',
+          '700/1400',
+          '-- break --',
+          '1000/2000',
+          '1500/3000',
+          '2000/4000',
+          '3000/6000'
+        ],
+        */
         duration: 20,
         level: 0
       },
@@ -390,6 +410,7 @@ export default {
         players: 0,
         reEntries: 0,
         stack: 1200,
+        /* stack: 6000, */
         buyin: 10
       },
       colors: [
@@ -558,32 +579,32 @@ export default {
     }
     .tournamentInfo {
       p {
-        font-size: 20px;
+        font-size: 25px;
         font-weight: 700;
         line-height: 1;
         .value {
           padding-top: 10px;
           display: block;
-          font-size: 35px;
+          font-size: 50px;
           font-weight: 700;
           line-height: 1;
         }
       }
     }
     .clockTime {
-      font-size: 250px;
+      font-size: 300px;
       font-weight: 700;
       line-height: 1;
     }
     .currentBlinds {
-      font-size: 125px;
+      font-size: 150px;
       font-weight: 700;
       line-height: 1;
     }
     .blindList {
       span {
         display: block;
-        font-size: 35px;
+        font-size: 50px;
         font-weight: 700;
         line-height: 1;
         padding-bottom: 5px
